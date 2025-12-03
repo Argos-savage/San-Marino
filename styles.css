@@ -1,0 +1,173 @@
+*{
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+:root{
+    /*Colores de la Empresa*/
+    --sm-black: #000000;
+    --sm-dark-gray: #4F4F4D;
+    --sm-red: #AA0F0F;
+    --sm-gray-mid: #DADADA;
+    --sm-gray-light: #EDEDED;
+    --sm-white: #FFFFFF;
+    /* Roles en la web*/
+    --color-fondo: var(--sm-gray-light);
+    --color-primario: var(--sm-black);
+    --color-secundario: var(--sm-dark-gray);
+    --color-acento:var(--sm-red);
+    --color-texto:var(--sm-dark-gray);
+    --color-texto-inverso:var(--sm-white);
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    padding: 0;
+    background-image: url("Imagenes/Fondo\ de\ la\ pagina.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.container{
+    width: min(1100px, 90%);
+    margin: 0 auto;
+}
+
+header{
+    background-color: var(--color-primario);
+    color: var(--color-texto-inverso);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+main {
+    padding: 40px 0;
+    background-color: rgba(237, 237, 237, 0.70);
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+ul {
+    padding-left: 20px;
+}
+footer{
+    background-color: var(--color-primario);
+    color: var(--color-texto-inverso);
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.9rem;
+    margin-top: 40px;
+}
+a{
+    color:var(--color-acento);
+    text-decoration:none;
+}
+a:hover {
+    text-decoration:underline;
+}
+.header-content{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+} /*Título y slogan en bloque*/
+.logo-arena h1{
+    margin: 0;
+    font-size: 2rem;
+}
+.logo-area p{
+    margin: 8px 0 0;
+    font-style: italic;
+}
+/*Navegación principal*/
+.main-nav ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20 px;
+}
+.main-nav li{
+    margin-left: 20px;
+}
+.main-nav li:first-child{
+    margin-left: 0;
+}
+.main-nav a {
+    color:var(--color-texto-inverso);
+    text-decoration:none;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+.main-nav a:hover{
+    color: var(--color-acento);
+}
+hero{
+    padding: 40px 0 50px;
+}
+.hero-text p{
+    max-width: 900px;
+    line-height: 1.6;
+}
+.btn-primario{
+    margin-top: 15px;
+    padding: 10px 18px;
+    background-color: var(--color-acento);
+    color: var(--color-texto-inverso);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.btn-primario:hover{
+    opacity: 0.9
+}
+.horario{
+    margin-top: 10px;
+    font-weight: 500;
+}
+.oculto{
+    display: none;
+}
+.carrusel{
+    position: relative;
+    max-width: 600px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: var(--sm-gray-mid);
+}
+.carrusel-track img{
+    width: 100%;
+    display: none;
+}
+.carrusel-track img.activa{
+    display:block;
+}
+.carrusel-btn{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: var(--sm-white);
+    border: none;
+    cursor: pointer;
+    padding: 8px 12px;
+    font-size: 1rem;
+}
+.carrusel-btn.previa{
+    left: 10px;
+}
+.carrusel-btn.proximo{
+    right: 10px;
+}

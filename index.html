@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Página de la Empresa</title>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<header>
+    <div class="container header-content">
+        <div class="logo-area">
+         <h1> Auto Servicio San Marino</h1>
+        <p>Cuidado total para tu vehículo, confianza total para ti.</p>
+        </div>
+
+        <nav class="main-nav">
+          <ul>
+            <li><a href="#quienes-somos">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+    <Section id="quienes-somos" class="hero">
+        <div class="container">
+            <div class="carrusel">
+                <div class="carrusel-track">
+                <img src="Imagenes/Quienes somos .jpeg" alt="Sala de espera" class="activa">
+                <img src="Imagenes/Quienes somos 2.jpeg" alt="Fachada de afuera">
+                <img src="Imagenes/Quienes somos 3.jpeg" alt="Servicios de carros">
+            </div>
+            <button class="carrusel-btn previa">&lt;</button>
+            <button class="carrusel-btn proximo">&gt;</button>
+        </div>
+
+      <div class="hero-text">
+        <h2>¿Quiénes somos?</h2>
+        <p>
+            San Marino es una empresa dedicada al cuidado y mantenimiento integral del vehículo, especializada en la venta de cauchos, servicios de alineación y balanceo, frenos y otros trabajos de autoservicio. Su objetivo es que cada cliente pueda manejar con seguridad, comodidad y confianza en cada kilómetro.
+
+            Ayuda tanto a conductores particulares como a familias y pequeñas empresas que dependen de sus vehículos a diario, ofreciéndoles un servicio confiable, atención cercana y soluciones rápidas para que su auto siempre esté en óptimas condiciones y listo para la vía.
+        </p>
+        <button id="btn-horario" class="btn-primario">
+            Ver horario de atención
+        </button>
+        <p id="horario" class="horario oculto">
+            Horario de atención: Lunes a Viernes, 7:30 a.m. a 5:00 p.m., Sábado, 7:30 a.m. a 1:00 p.m.
+        </p>
+     </div>
+     </div>
+    </Section>
+<div class="container">
+ <section id="servicios">
+    <div class="carrusel" data-carrusel="servicios">
+     <div class="carrusel-track">
+                <img src="Imagenes/Alineacion.jpeg" alt="Alineación" class="activa">
+                <img src="Imagenes/Balanceo.jpeg" alt="Balanceo">
+                <img src="Imagenes/Cambio de aciete.jpeg" alt="Cambio de aceite">
+            </div>
+            <button class="carrusel-btn previa">&lt;</button>
+            <button class="carrusel-btn proximo">&gt;</button>
+    </div>
+    <h2>Servicios</h2>
+    <ul>
+        <li>Alineación</li>
+        <li>Balanceo</li>
+        <li>Cambio de aceite</li>
+    </ul>
+</section>
+
+<section id="contacto">
+    <h2>Contacto</h2>
+    <p>Correo: as.sanmarino@Gmail.com</p>
+    <p>Telefóno: 0412-9474320</p>
+</section>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+    <p> 
+        &copy; <span id="current-year"></span> Auto Serivcios San Marino. Todos los derechos reservados.
+    </p>
+    </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
