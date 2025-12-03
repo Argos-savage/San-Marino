@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Agendar cita - Auto Servicio San Marino</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container header-content">
+      <div class="logo-area">
+        <h1>Auto Servicio San Marino</h1>
+        <p>Cuidado total para tu vehículo, confianza total para ti.</p>
+      </div>
+
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html#Quienes somos">Inicio</a></li>
+          <li><a href="index.html#servicios">Servicios</a></li>
+          <li><a href="index.html#contacto">Contacto</a></li>
+          <li><a href="agendar.html">Agendar cita</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section id="agendar">
+        <h2>Agenda tu servicio</h2>
+        <p>
+          Dinos qué servicio necesitas y coordinamos todo contigo por WhatsApp.
+          El sistema armará el resumen por ti y nosotros te escribiremos para
+          confirmar.
+        </p>
+
+        <!-- Aquí va el formulario con los datos que vas a pedir -->
+        <form class="form-cita">
+          <h3>Tus datos</h3>
+
+          <label>
+            Nombre completo
+            <input type="text" name="nombre" required />
+          </label>
+
+          <label>
+            WhatsApp / Teléfono
+            <input type="tel" name="telefono" required />
+          </label>
+
+          <label>
+            Vehículo (marca y modelo)
+            <input type="text" name="vehiculo" placeholder="Ej: Toyota Fortuner 2016" required />
+          </label>
+
+          <label>
+            Placa del vehículo
+            <input type="text" name="placa" required />
+          </label>
+
+          <fieldset class="form-servicios">
+            <legend>Servicios que deseas realizar</legend>
+            <label><input type="checkbox" name="servicios" value="Alineación" /> Alineación</label>
+            <label><input type="checkbox" name="servicios" value="Balanceo" /> Balanceo</label>
+            <label><input type="checkbox" name="servicios" value="Cambio de aceite" /> Cambio de aceite</label>
+            <label><input type="checkbox" name="servicios" value="Revisión de frenos" /> Revisión de frenos</label>
+            <label><input type="checkbox" name="servicios" value="Revisión general" /> Revisión general</label>
+            <label>
+              <input type="checkbox" name="servicios" value="Otro" />
+              Otro servicio
+            </label>
+          </fieldset>
+
+          <label>
+            Cuéntanos qué le sucede a tu carro (opcional)
+            <textarea name="comentario" rows="3" placeholder="Ej: vibra a 80 km/h, se va hacia la derecha..."></textarea>
+          </label>
+
+          <label class="form-checkbox">
+            <input type="checkbox" name="acepta_contacto" required />
+            Acepto que San Marino me contacte por WhatsApp para confirmar mi servicio.
+          </label>
+
+          <label class="form-checkbox">
+            <input type="checkbox" name="acepta_promos" />
+            También quiero recibir recordatorios y promociones.
+          </label>
+
+          <!-- Aquí más adelante mostraremos el precio total -->
+          <div class="form-resumen">
+            <p><strong>Total estimado:</strong> <span id="total-estimado">$0</span></p>
+          </div>
+
+          <!-- Por ahora este botón no envía a WhatsApp, esa lógica la hacemos luego -->
+          <button type="submit" class="btn-primario">
+            Confirmar datos (luego WhatsApp)
+          </button>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>
+        &copy; <span id="current-year"></span> Auto Servicios San Marino.
+        Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

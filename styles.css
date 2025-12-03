@@ -1,9 +1,6 @@
 *{
     box-sizing: border-box;
 }
-html {
-    scroll-behavior: smooth;
-}
 :root{
     /*Colores de la Empresa*/
     --sm-black: #000000;
@@ -31,6 +28,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    scroll-behavior: smooth;
 }
 .container{
     width: min(1100px, 90%);
@@ -170,4 +168,90 @@ hero{
 }
 .carrusel-btn.proximo{
     right: 10px;
+}
+
+.form-cita {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 700px;       
+  display: grid;
+  gap: 15px;
+}
+
+.form-cita h3 {
+  margin: 0 0 10px;
+}
+
+.form-cita label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.form-cita input:not([type="checkbox"]),
+.form-cita textarea {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin-top: 5px;
+  padding: 8px 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font: inherit;
+}
+
+.form-cita textarea {
+  resize: vertical;
+}
+
+.form-servicios {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px 12px;
+}
+
+.form-servicios legend {
+  font-weight: 600;
+  padding: 0 4px;
+}
+
+.form-servicios label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+  margin-top: 4px;
+  justify-content: flex-start;
+}
+
+.form-servicios input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+}
+
+.form-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+}
+
+.form-checkbox input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+}
+
+.form-resumen {
+  margin-top: 5px;
+  padding: 10px 12px;
+  background-color: rgba(237, 237, 237, 0.70);
+  border-radius: 4px;
+}
+
+.form-cita input,
+.form-cita textarea,
+.form-cita .form-servicios,
+.form-cita .form-checkbox {
+  scroll-margin-top: 280px;
 }
