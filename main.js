@@ -1,5 +1,7 @@
 console.log("Página de la empresa cargada correctamente")
 
+const STORAGE_CITAS_KEY = "sm_citas_sanmarino";
+
 const yearSpan = document.querySelector("#current-year");
 
 if(yearSpan) {
@@ -102,11 +104,34 @@ if (formCita && totalSpan) {
     const aceptaPromos = datos.get("acepta_promos") ? "Sí" : "No";
     const totalTexto = totalSpan.textContent || "$0";
 
+const cita = {
+      fechaISO: new Date().toISOString(),
+      nombre,
+      telefono,
+      vehiculo,
+      placa,
+      servicios: serviciosSeleccionados,
+      comentario,
+      aceptaPromos,
+      total: totalTexto,
+    };
+
+    try {
+      const citasPrevias = JSON.parse(localStorage.getItem(STORAGE_CITAS_KEY) || "[]");
+      citasPrevias.push(cita);
+      localStorage.setItem(STORAGE_CITAS_KEY, JSON.stringify(citasPrevias));
+      console.log("Cita guardada en localStorage:", cita);
+    } catch (error) {
+      console.error("Error guardando cita en localStorage", error);
+    }
+
     const mensaje = `
-Hola, soy ${nombre}.
+Hola, soy ${nombre}
 
 WhatsApp / Teléfono: ${telefono}
+
 Vehículo: ${vehiculo}
+
 Placa: ${placa}
 
 Servicios que deseo realizar:
@@ -116,6 +141,7 @@ Comentario sobre el carro:
 ${comentario}
 
 Acepto recibir promociones: ${aceptaPromos}
+
 Total estimado: ${totalTexto}
 
 Enviado desde la web de Auto Servicio San Marino.
@@ -128,3 +154,47 @@ Enviado desde la web de Auto Servicio San Marino.
     window.location.href = urlWhatsApp;
   });
 }
+
+(function () {
+  const tablaBody = document.querySelector("#tabla-citas-body");
+  if (!tablaBody) return; 
+  let citas = [];
+  try {
+    citas = JSON.parse(localStorage.getItem(STORAGE_CITAS_KEY) || "[]");
+  } catch (error) {
+    console.error("Error leyendo citas de localStorage", error);
+  }
+
+  if (!citas.length) {
+    tablaBody.innerHTML = `
+      <tr>
+        <td colspan="7">No hay citas guardadas todavía en este navegador.</td>
+      </tr>
+    `;
+    return;
+  }
+
+  const filasHtml = citas.map((cita, index) => {
+    const fechaObj = new Date(cita.fechaISO || Date.now());
+    const fechaBonita = fechaObj.toLocaleString("es-VE", {
+      dateStyle: "short",
+      timeStyle: "short",
+    });
+
+    const serviciosTexto = (cita.servicios || []).join(", ");
+
+    return `
+      <tr>
+        <td>${index + 1}</td>
+        <td>${fechaBonita}</td>
+        <td>${cita.nombre || ""}</td>
+        <td>${cita.vehiculo || ""}</td>
+        <td>${cita.placa || ""}</td>
+        <td>${serviciosTexto}</td>
+        <td>${cita.total || ""}</td>
+      </tr>
+    `;
+  }).join("");
+
+  tablaBody.innerHTML = filasHtml;
+})();

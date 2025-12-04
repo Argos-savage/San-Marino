@@ -255,3 +255,28 @@ hero{
 .form-cita .form-checkbox {
   scroll-margin-top: 280px;
 }
+
+.tabla-citas{
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: rgba(237, 237, 237, 0.70);
+}
+
+.tabla-citas th,
+.tabla-citas td{
+  border: 1px solid #ddd;
+  padding: 8px 10px;
+  font-size: 0.9rem;
+}
+
+.tabla-citas th{
+  background-color: rgba(0, 0, 0, 0.85);
+  color: var(--color-texto-inverso);
+  text-align: left;
+}
+
+.nota-panel{
+  margin-top: 10px;
+  font-size: 0.85rem;
+}
