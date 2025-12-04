@@ -50,3 +50,81 @@ carrusel.forEach((carrusel) => {
         mostrarImagen(indiceActual);
     });
 })
+const whatsappNumber = 584129474320
+const formCita = document.querySelector(".form-cita");
+const totalSpan = document.querySelector("#total-estimado");
+
+if (formCita && totalSpan) {
+  const preciosServicios = {
+    "Alineación": 25,
+    "Balanceo": 40,
+    "Cambio de aceite": 30,
+    "Revisión de frenos": 15,
+    "Revisión general": 10,
+    "Otro servicio": 0,
+  };
+
+  const checkboxesServicios = formCita.querySelectorAll('input[name="servicios"]');
+
+  function actualizarTotal() {
+    let total = 0;
+
+    checkboxesServicios.forEach((chk) => {
+      if (chk.checked) {
+        const precio = preciosServicios[chk.value] || 0;
+        total += precio;
+      }
+    });
+
+    totalSpan.textContent = `$${total}`;
+  }
+
+  checkboxesServicios.forEach((chk) => {
+    chk.addEventListener("change", actualizarTotal);
+  });
+
+  actualizarTotal();
+
+
+  const whatsappNumber = "584129474320";
+
+  formCita.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const datos = new FormData(formCita);
+
+    const nombre = datos.get("nombre") || "Sin nombre";
+    const telefono = datos.get("telefono") || "Sin teléfono";
+    const vehiculo = datos.get("vehiculo") || "Sin vehículo";
+    const placa = datos.get("placa") || "Sin placa";
+    const comentario = datos.get("comentario") || "Sin comentarios";
+    const serviciosSeleccionados = datos.getAll("servicios");
+    const aceptaPromos = datos.get("acepta_promos") ? "Sí" : "No";
+    const totalTexto = totalSpan.textContent || "$0";
+
+    const mensaje = `
+Hola, soy ${nombre}.
+
+WhatsApp / Teléfono: ${telefono}
+Vehículo: ${vehiculo}
+Placa: ${placa}
+
+Servicios que deseo realizar:
+${serviciosSeleccionados.length ? "• " + serviciosSeleccionados.join("\n• ") : "No indiqué servicios"}
+
+Comentario sobre el carro:
+${comentario}
+
+Acepto recibir promociones: ${aceptaPromos}
+Total estimado: ${totalTexto}
+
+Enviado desde la web de Auto Servicio San Marino.
+    `.trim();
+
+    const textoCodificado = encodeURIComponent(mensaje);
+
+    const urlWhatsApp = `https://wa.me/${whatsappNumber}?text=${textoCodificado}`;
+
+    window.location.href = urlWhatsApp;
+  });
+}
